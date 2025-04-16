@@ -30,6 +30,9 @@
 //   transports: [new transports.Console()]
 // })
 
+// For jest test
+// require('dotenv').config();
+
 // Third Example
 require('winston-daily-rotate-file');
 require('winston-mongodb');
