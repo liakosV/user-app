@@ -46,7 +46,12 @@ exports.create = async(req, res) => {
 
   let data = req.body;
   const saltOrRounds = 10;
-  const hashedPassword = await bcrypt.hash(data.password, saltOrRounds)
+  let hashedPassword = "";
+
+  if (data.password) {
+    hashedPassword = await bcrypt.hash(data.password, saltOrRounds)
+  }
+  
 
   const newUser = new User({
     username: data.username,
