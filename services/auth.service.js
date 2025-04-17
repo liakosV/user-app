@@ -17,9 +17,10 @@ function generateAccessToken(user) {
 
 function verifyAccessToken(token) {
   const secret = process.env.TOKEN_SECRET;
-  const payload = jwt.verify(token, secret)
+  
 
   try {
+    const payload = jwt.verify(token, secret)
     console.log("DECODED", payload)
     return {verified:true, data:payload};
   } catch (error) {
